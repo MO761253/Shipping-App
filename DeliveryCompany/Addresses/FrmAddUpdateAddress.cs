@@ -39,11 +39,9 @@ namespace DeliveryCompany
         }
         private void _fillcbgovernorates()
         {
-            DataTable dtgovernorates= clsaddresses.GetGovernorates();
-            foreach(DataRow row in dtgovernorates.Rows)
-            {
-                cbgovernorates.Items.Add(row["governoratename"]);
-            }
+            cbgovernorates.DataSource = clsaddresses.GetGovernorates();
+            cbgovernorates.DisplayMember = "GovernorateName";
+            cbgovernorates.ValueMember = "GovernorateID";
             cbgovernorates.SelectedIndex = 0;
         }
         private void _GetAddressInfo()
@@ -79,8 +77,7 @@ namespace DeliveryCompany
         }
         private void _GetUserGovernorateInCb()
         {
-            cbgovernorates.SelectedIndex = Convert.ToInt32(addressinfo["governorateID"]) - 1;
-
+            cbgovernorates.SelectedValue = Convert.ToInt32(addressinfo["governorateID"]);
         }
         enum enMode { add,update};
         enMode Mode;
@@ -142,7 +139,7 @@ namespace DeliveryCompany
             }
             if (Mode == enMode.add)
             {
-                if (clsaddresses.Add_New_Address(_userID, (cbgovernorates.SelectedIndex + 1).ToString(), citytxt.Text.Trim()
+                if (clsaddresses.Add_New_Address(_userID, (cbgovernorates.SelectedValue).ToString(), citytxt.Text.Trim()
                      , areatxt.Text.Trim(), streettxt.Text.Trim(), Convert.ToInt32(BuildingNumtxt.Text.Trim())
                      , postalcodetxt.Text.Trim(), _addressType))
                 {
@@ -151,7 +148,7 @@ namespace DeliveryCompany
                 }
             }
             else {
-             if (clsaddresses.UpdateAddress(_addID, (cbgovernorates.SelectedIndex + 1).ToString(),
+             if (clsaddresses.UpdateAddress(_addID, (cbgovernorates.SelectedValue).ToString(),
                     areatxt.Text.Trim(), citytxt.Text.Trim(), streettxt.Text.Trim(), BuildingNumtxt.Text.Trim()
                     , postalcodetxt.Text.Trim(), _addressType))
                 {

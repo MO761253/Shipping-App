@@ -134,24 +134,23 @@ namespace DeliveryCompany
             switch (packtype.Trim()) 
             {
                 case "HomeAppliances" :
-                    HomeAppRB.Checked = true;
+                    HomeAppRB.PerformClick();
                     break;
                 case "Medicine":
-                    MedicineRB.Checked = true;
+                    MedicineRB.PerformClick();
                     break;
                 case "Clothing":
-                    ClothingRB.Checked = true;
+                    ClothingRB.PerformClick();
                     break;
                 case "Electronics":
-                    ElecRB.Checked = true;
+                    ElecRB.PerformClick();
                     break;
                 case "Papers and Documents":
-                    PADrB.Checked = true;
+                    PADrB.PerformClick();
                     break;
                 case "Others":
-                    OthersRB.Checked = true;
+                    OthersRB.PerformClick();
                     break;
-
             }
         }
         private void PackageSizetxt_Validating(object sender, CancelEventArgs e)
@@ -251,7 +250,6 @@ namespace DeliveryCompany
             }
              MessageBox.Show("Error,Something went Wrong");
         }
-
         private void DPCtxt_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(DPCtxt.Text))

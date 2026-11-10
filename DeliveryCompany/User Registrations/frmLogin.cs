@@ -33,7 +33,7 @@ namespace DeliveryCompany
         private void Form1_Load(object sender, EventArgs e)
         {
             Passwordtxt.UseSystemPasswordChar = true;
-            cancelbtn.Focus();
+            loginbtn.Select();
         }
         private void cancelbtn_Click(object sender, EventArgs e)
         {

@@ -17,7 +17,7 @@ namespace addressesdatalayer
             using (SqlConnection connection = new SqlConnection(myconnection.C))
             {
                 connection.Open();
-                string query = "select Governoratename from governorates";
+                string query = "select governorateID,Governoratename from governorates";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     try

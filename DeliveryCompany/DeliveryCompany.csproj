@@ -240,6 +240,10 @@
       <Project>{c0a275b0-8733-46ec-ab9e-5725ec95ece4}</Project>
       <Name>addressesBussinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\mysqlconnection\mysqlconnection.csproj">
+      <Project>{0b845fb4-1212-4454-89ec-12eefb2226db}</Project>
+      <Name>mysqlconnection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyTools\MyTools.csproj">
       <Project>{3f86b7e2-0bba-4b9f-9d3d-c9dc6e3af9e4}</Project>
       <Name>MyTools</Name>
